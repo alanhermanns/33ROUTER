@@ -2,8 +2,8 @@ import React from 'react';
 import setApiCharacters from './RickAndMortyApiHook';
 import Character from './Character';
 
-const CharacterList = () => {
-  const { characters } = setApiCharacters();
+const CharacterList = ({ pageNumber }) => {
+  const { characters } = setApiCharacters(pageNumber);
 
   console.log('api?', characters);
 

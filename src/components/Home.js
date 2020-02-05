@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import CharacterList from './CharacterList';
 
 const Home = () => {
-
-  //   const [characters, setCharacters] = useState([]);
+  const [count, setCount] = useState(1);
 
   return <>
     <h1>Here You Are, Home</h1>
-    <CharacterList />
+    <button onClick={() => setCount(count => count + 1)}>Next</button>
+    <button onClick={() => {
+      count > 1 && setCount(count => count - 1);
+    }}>Previous</button>
+    <CharacterList pageNumber={count}/>
   </>;
 }; 
 

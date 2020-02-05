@@ -7,7 +7,7 @@ const setApiCharacters = (pageNumber = 1) => {
   useEffect(() => {
     console.log('here');
     rAndMAPI();
-  }, []);
+  }, [pageNumber]);
 
   const rAndMAPI = () => {
     console.log('here');
