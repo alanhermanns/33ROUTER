@@ -3,10 +3,12 @@ import setApiCharacters from './RickAndMortyApiHook';
 import Character from './Character';
 
 const CharacterList = () => {
-  const characters = setApiCharacters();
-  console.log(characters);
+  const { characters } = setApiCharacters();
+
+  console.log('api?', characters);
+
   return characters.map(({ id, name, status, species }) => {
-    <Character id={id} name={name} status={status} species={species} />;
+    return <Character key={id} id={id} name={name} status={status} species={species} />;
   });
 };
 
