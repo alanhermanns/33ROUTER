@@ -4,7 +4,7 @@ import CharacterList from './CharacterList';
 
 const Home = () => {
 
-  const [characters, setCharacters] = useState([]);
+  //   const [characters, setCharacters] = useState([]);
 
   return <>
     <h1>Here You Are, Home</h1>
