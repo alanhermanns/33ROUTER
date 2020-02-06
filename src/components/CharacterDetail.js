@@ -1,12 +1,17 @@
 import React from 'react';
-import { useRouteMatch as match } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import setCharacterDetail from './RickAndMortyApiDetailHook';
 
 const characterDetail = () => {
-  console.log('here');
-  const { character } = setCharacterDetail({ match });
+  const { id } = useParams();
+  const { character, loading } = setCharacterDetail(id);
+  if(loading){
+    return (
+      <h1>Loading</h1>
+    );
+  }
   const episodes = character.episodes.map((episode, i) => {
-    <li key={i}>{episode}</li>;
+    return <li key={i}>{episode}</li>;
   });
   return (
     <>

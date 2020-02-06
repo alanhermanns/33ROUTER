@@ -1,9 +1,10 @@
 import { useState, useEffect } from  'react';
 
-const setCharacterDetail = ({ match }) => {
+const useCharacterDetail = (id) => {
   const [character, setCharacter] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const id = match.params.id;
+  console.log(id);
 
   useEffect(() => {
     console.log('load');
@@ -11,19 +12,22 @@ const setCharacterDetail = ({ match }) => {
   }, []);
 
   const rAndMDetail = () => {
+
     console.log('detail');
+    
     return fetch(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/${id}`)
       .then(res => res.json())
       .then(response => ({
         name: response.name,
-        episodes : response.episodes
+        episodes : response.episode
       }))
       .then(res => {
         setCharacter(res);
+        setLoading(false);
       });
   };
 
-  return { character, rAndMDetail };
+  return { character, rAndMDetail, loading };
 };
 
-export default setCharacterDetail;
+export default useCharacterDetail;

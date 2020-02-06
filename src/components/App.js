@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/:id" componenet={CharacterDetail} />
+        <Route path="/:id" component={CharacterDetail} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>
